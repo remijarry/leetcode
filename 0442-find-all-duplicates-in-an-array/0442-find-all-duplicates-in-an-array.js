@@ -2,19 +2,15 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var findDuplicates = function(nums) {
-    let counts = Array(nums.length + 1).fill(0);
-
-    for (let num of nums) {
-        counts[num]++;
-    }
-
+var findDuplicates = function (nums) {
     let ans = [];
 
-    for (let i = 0; i < counts.length; i++) {
-        if (counts[i] > 1) {
-            ans.push(i);
+    for (let i = 0; i < nums.length; i++) {
+        let index = Math.abs(nums[i]) - 1;
+        if (nums[index] < 0) {
+            ans.push(Math.abs(index + 1))
         }
+        nums[index] = -nums[index];
     }
 
     return ans;
