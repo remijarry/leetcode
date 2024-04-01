@@ -19,3 +19,7 @@ var productExceptSelf = function(nums) {
 
     return arr;
 };
+
+let a = [1, 2, 3, 4];
+
+productExceptSelf(a);
